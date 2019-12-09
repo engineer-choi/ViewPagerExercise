@@ -25,6 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         mViewPager.adapter = mCardAdapter
         mViewPager.setPageTransformer(false,mCardShadowTransformer)
-        mViewPager.offscreenPageLimit=3
+        mViewPager.offscreenPageLimit=3//뷰페이저 내의 메소드. 최대 개수 설정 가능(n+1개만큼 가능함)
     }
 }

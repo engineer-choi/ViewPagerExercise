@@ -12,8 +12,8 @@ class CardPagerAdapter(override val MAX_ELEVATION_FACTOR: Int) : CardAdapter, Pa
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
     }
-    var mViews = mutableListOf<CardView?>()
-    var mData = mutableListOf<CardItem>()
+    var mViews = mutableListOf<CardView?>()//카드뷰 모음
+    var mData = mutableListOf<CardItem>()//카드뷰에 들어갈 데이터 모음
     var mBaseElevation: Float = 0.0f
 
     fun addCardItem(item : CardItem) {
@@ -37,7 +37,7 @@ class CardPagerAdapter(override val MAX_ELEVATION_FACTOR: Int) : CardAdapter, Pa
         val view : View = LayoutInflater.from(container.context)
             .inflate(R.layout.item,container,false)
         container.addView(view)
-        bind(mData.get(position),view)
+        bind(mData.get(position),view)//아래에 작성되어있는 메소드로 전달.
         val cardView : CardView = view.findViewById(R.id.cardView)
 
         if(mBaseElevation == 0f){
@@ -53,7 +53,7 @@ class CardPagerAdapter(override val MAX_ELEVATION_FACTOR: Int) : CardAdapter, Pa
         mViews.set(position,null)
     }
 
-    private fun bind(item:CardItem , view : View){
+    private fun bind(item:CardItem , view : View){//해당 카드뷰에 해당 데이터들 삽입
         val titleTextView : TextView= view.findViewById(R.id.titleTextView)
         val contentTextView  : TextView= view.findViewById(R.id.contentTextView)
         titleTextView.text=item.title_resource.toString()
